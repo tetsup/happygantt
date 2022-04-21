@@ -1,6 +1,6 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
   .container-fluid
-    %a.navbar-brand{ href: '#' }
+    %a.navbar-brand{ href: root_path }
       Happy Gantt
     %button.navbar-toggler{ type: 'button',
                             data: { 'bs-toggle' => 'collapse', 'bs-target' => '#navbarNav' },
@@ -10,6 +10,6 @@
     .collapse.navbar-collapse#navbarNav
       %ul.navbar-nav.me-auto.mb-2.mb-lg-0
         %li.nav-item
-          %a.nav-link.active{ 'area-current' => 'page', href: '#' }
+          %a.nav-link.active{ 'area-current' => 'page', href: root_path }
             Home
-          
+      = render 'layouts/user_session'
