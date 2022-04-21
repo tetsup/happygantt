@@ -1,6 +1,9 @@
-.d-flex
-  - if user_signed_in?
+- if user_signed_in?
+  .d-flex.navbar-nav
+    %a.nav-link.active{ 'area-current' => 'page', href: edit_user_registration_path }
+      %i.fas.fa-gear
     = button_to t('devise.sessions.destroy.sign_out'), destroy_user_session_path, class: 'btn btn-outline-light', method: :delete
-  - else
+- else
+  .d-flex.navbar-nav
     = button_to t('devise.sessions.new.sign_in'), new_user_session_path, class: 'btn btn-outline-light', method: :get
     = button_to t('devise.registrations.new.sign_up'), new_user_registration_path, class: 'btn btn-success', method: :get
