@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root 'homes#index'
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
+  scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
+    root 'homes#index'
+    devise_for :users, controllers: {
+      registrations: 'users/registrations'
+    }
+  end
 end
