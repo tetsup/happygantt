@@ -16,5 +16,8 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control'
   .form-group
+    = f.label :time_zone
+    = f.time_zone_select :time_zone, nil, { default: Rails.application.config.time_zone }, { class: 'form-control' }
+  .form-group
     = f.submit t('.sign_up'), class: 'btn btn-primary'
 = render 'devise/shared/links'
