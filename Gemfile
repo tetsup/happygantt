@@ -24,8 +24,9 @@ end
 
 group :development do
   gem 'listen', '~> 3.3'
+  gem 'pry-rails'
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'sgcop', github: 'SonicGarden/sgcop'
+  gem 'rubocop'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
