@@ -1,4 +1,4 @@
-class MissionMembership < ApplicationRecord
+class MissionUserRelationship < ApplicationRecord
   enum role: %i[owner member guest]
 
   belongs_to :user

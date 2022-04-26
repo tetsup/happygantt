@@ -1,4 +1,4 @@
-class CreateMissionMemberships < ActiveRecord::Migration[6.1]
+class CreateMissionUserRelationships < ActiveRecord::Migration[6.1]
   def change
     create_table :mission_memberships do |t|
       t.references :mission, foreign_key: true

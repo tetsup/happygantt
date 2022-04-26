@@ -7,7 +7,7 @@ class MissionsController < ApplicationController
 
   def create
     @mission = current_user.missions.build(mission_params)
-    @mission.mission_memberships.build(user: current_user, role: :owner)
+    @mission.mission_user_relationships.build(user: current_user, role: :owner)
     redirect_to missions_path, notice: t('.mission.create.succeeded') if @mission.save
     render 'new', alert: t('.mission.create.failed')
   end
