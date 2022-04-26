@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :fetch_mission, only: %i[edit show destroy]
+  before_action :fetch_mission, only: %i[edit update destroy]
   def index
     @missions = current_user.missions.all
   end
@@ -8,8 +8,11 @@ class MissionsController < ApplicationController
   def create
     @mission = current_user.missions.build(mission_params)
     @mission.mission_user_relationships.build(user: current_user, role: :owner)
-    redirect_to missions_path, notice: t('.mission.create.succeeded') if @mission.save
-    render 'new', alert: t('.mission.create.failed')
+    if @mission.save
+      redirect_to missions_path, notice: t('.mission.create.succeeded')
+    else
+      render 'new', alert: t('.mission.create.failed')
+    end
   end
 
   def new
@@ -18,7 +21,13 @@ class MissionsController < ApplicationController
 
   def edit; end
 
-  def show; end
+  def update
+    if @mission.update(mission_params)
+      redirect_to edit_mission_path, notice: t('.mission.update.succeeded')
+    else
+      render 'edit', alert: t('.mission.update.failed')
+    end
+  end
 
   def destroy
     if @mission.destroy

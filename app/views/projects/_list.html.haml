@@ -1,0 +1,17 @@
+%table.table
+  %thead
+    %tr
+      %td
+        = t('.name')
+      %td
+        = t('.description')
+      %td
+        = t('.status')
+  - projects.each do |p|
+    %tr
+      %td
+        = p.name
+      %td
+        = p.description
+      %td
+        = p.status

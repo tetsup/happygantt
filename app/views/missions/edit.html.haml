@@ -1,3 +1,5 @@
 %h2
   = t('.edit')
 = render 'form', { mission: @mission }
+= link_to t('.project.new'), new_mission_project_path(@mission.id)
+= render 'projects/list', { projects: @mission.projects }
