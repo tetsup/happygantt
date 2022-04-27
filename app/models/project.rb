@@ -5,4 +5,6 @@ class Project < ApplicationRecord
   belongs_to :mission
 
   enum status: %i[notyet doing done]
+  validates :name, presence: true, uniqueness: { scope: :mission_id }, length: { maximum: 20 }
+  validates :description, length: { maximum: 200 }
 end
