@@ -2,16 +2,24 @@
   %thead
     %tr
       %td
+        = t('mission.name')
+      %td
         = t('.name')
       %td
         = t('.description')
       %td
         = t('.status')
+      %td
+        = t('.destroy')
   - projects.each do |p|
     %tr
+      %td
+        = p.mission.name
       %td
         = p.name
       %td
         = p.description
       %td
         = p.status
+      %td
+        = button_to t('.destroy'), project_path(p.id), method: :delete

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     devise_for :users, controllers: {
       registrations: 'users/registrations'
     }
-    resources :missions
+    resources :missions, except: [:show] do
+      resources :projects, except: [:destroy]
+    end
+    resources :projects, only: [:destroy]
   end
 end
