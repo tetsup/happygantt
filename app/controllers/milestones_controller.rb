@@ -11,8 +11,8 @@ class MilestonesController < ApplicationController
 
   def create
     @milestone = @project.milestones.build(milestone_params)
-    if @milestone.save?
-      redirect_to edit_projects_path(@project.id), notice: t('.succeeded')
+    if @milestone.save
+      redirect_to edit_project_path(@project.id), notice: t('.succeeded')
     else
       flash[:alert] = t('.failed')
       render 'new'
