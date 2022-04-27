@@ -1,0 +1,22 @@
+%table.table
+  %thead
+    %tr
+      %td
+        = t('model.milestones.name')
+      %td
+        = t('model.milestones.due_date')
+      %td
+        = t('model.milestones.closed_date')
+      %td
+        = t('model.milestones.status')
+  %tbody
+    - milestones.each do |m|
+      %tr
+        %td
+          m.name
+        %td
+          m.due_date
+        %td
+          m.closed_date
+        %td
+          m.status

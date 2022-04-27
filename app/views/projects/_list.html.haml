@@ -14,9 +14,9 @@
   - projects.each do |p|
     %tr
       %td
-        = p.mission.name
+        = link_to p.mission.name, edit_mission_path(p.mission.id)
       %td
-        = p.name
+        = link_to p.name, edit_project_path(p.id)
       %td
         = p.description
       %td

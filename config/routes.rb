@@ -5,8 +5,10 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
     }
     resources :missions, except: [:show] do
-      resources :projects, except: [:destroy]
+      resources :projects, only: %i[index new create]
     end
-    resources :projects, only: [:destroy]
+    resources :projects, only: %i[edit update destroy] do
+      resources :milestones, only: %i[index new create]
+    end
   end
 end
