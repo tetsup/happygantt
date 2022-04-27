@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :mission_user_relationships, dependent: :destroy
   has_many :missions, through: :mission_user_relationships
-
+  has_many :projects, through: :missions
   validates :time_zone, inclusion: { in: ActiveSupport::TimeZone.all.map(&:name) }
 end
