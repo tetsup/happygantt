@@ -7,5 +7,6 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       t.integer :status, null: false, default: 0
       t.timestamps
     end
+    add_index :projects, %i[mission_id name], unique: true
   end
 end

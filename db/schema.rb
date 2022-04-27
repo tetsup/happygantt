@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_100921) do
+ActiveRecord::Schema.define(version: 2022_04_27_070256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "mission_user_relationships", force: :cascade do |t|
+    t.bigint "mission_id"
+    t.bigint "user_id"
+    t.integer "role", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mission_id"], name: "index_mission_user_relationships_on_mission_id"
+    t.index ["user_id"], name: "index_mission_user_relationships_on_user_id"
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_missions_on_name", unique: true
+  end
+
+  create_table "project_user_relationships", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.integer "role", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_user_relationships_on_project_id"
+    t.index ["user_id"], name: "index_project_user_relationships_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "mission_id"
+    t.string "name", null: false
+    t.string "description"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mission_id", "name"], name: "index_projects_on_mission_id_and_name", unique: true
+    t.index ["mission_id"], name: "index_projects_on_mission_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,4 +70,9 @@ ActiveRecord::Schema.define(version: 2022_04_21_100921) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "mission_user_relationships", "missions"
+  add_foreign_key "mission_user_relationships", "users"
+  add_foreign_key "project_user_relationships", "projects"
+  add_foreign_key "project_user_relationships", "users"
+  add_foreign_key "projects", "missions"
 end
