@@ -1,0 +1,14 @@
+ja:
+  missions:
+    index: 'ミッション一覧'
+    new: 'ミッション新規作成'
+    edit: 'ミッション編集'
+    create:
+      succeeded: 'ミッションが作成されました'
+      failed: 'ミッションの作成に失敗しました'
+    update:
+      succeeded: 'ミッションが更新されました'
+      failed: 'ミッションの更新に失敗しました'
+    destroy:
+      succeeded: 'ミッションが削除されました'
+      failed: 'ミッションの削除に失敗しました'

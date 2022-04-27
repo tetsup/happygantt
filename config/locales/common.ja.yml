@@ -1,0 +1,8 @@
+ja:
+  index: '一覧'
+  new: '新規作成'
+  edit: '編集'
+  show: '表示'
+  destroy: '削除'
+  create: '作成'
+  update: '更新'

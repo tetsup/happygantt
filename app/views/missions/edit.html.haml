@@ -1,5 +1,7 @@
 %h2
-  = t('.edit')
+  = t('.')
 = render 'form', { mission: @mission }
-= button_to t('.project.new'), new_mission_project_path(@mission.id), method: :get
+%h3
+  = t('projects.index')
+= button_to t('new'), new_mission_project_path(@mission.id), method: :get
 = render 'projects/list', { projects: @mission.projects }

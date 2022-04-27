@@ -9,9 +9,9 @@ class MissionsController < ApplicationController
     @mission = current_user.missions.build(mission_params)
     @mission.mission_user_relationships.build(user: current_user, role: :owner)
     if @mission.save
-      redirect_to missions_path, notice: t('.mission.create.succeeded')
+      redirect_to missions_path, notice: t('.succeeded')
     else
-      render 'new', alert: t('.mission.create.failed')
+      render 'new', alert: t('.failed')
     end
   end
 
@@ -23,17 +23,17 @@ class MissionsController < ApplicationController
 
   def update
     if @mission.update(mission_params)
-      redirect_to edit_mission_path, notice: t('.mission.update.succeeded')
+      redirect_to edit_mission_path, notice: t('.succeeded')
     else
-      render 'edit', alert: t('.mission.update.failed')
+      render 'edit', alert: t('.failed')
     end
   end
 
   def destroy
     if @mission.destroy
-      redirect_back fallback_location: missions_path, notice: t('.mission.destroy.succeeded')
+      redirect_back fallback_location: missions_path, notice: t('.succeeded')
     else
-      flash[:warning] = t('.mission.destroy.failed')
+      flash[:warning] = t('.failed')
     end
   end
 

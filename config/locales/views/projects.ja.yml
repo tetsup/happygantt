@@ -1,0 +1,14 @@
+ja:
+  projects:
+    index: 'プロジェクト一覧'
+    new: 'プロジェクト新規作成'
+    edit: 'プロジェクト編集'
+    create:
+      succeeded: 'プロジェクトが作成されました'
+      failed: 'プロジェクトの作成に失敗しました'
+    update:
+      succeeded: 'プロジェクトが更新されました'
+      failed: 'プロジェクトの更新に失敗しました'
+    destroy:
+      succeeded: 'プロジェクトが削除されました'
+      failed: 'プロジェクトの削除に失敗しました'

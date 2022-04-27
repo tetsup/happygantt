@@ -1,5 +1,8 @@
 ja:
   devise:
+    registrations:
+      edit:
+        title: ユーザー編集
     sessions:
       destroy:
         sign_out: ログアウト
