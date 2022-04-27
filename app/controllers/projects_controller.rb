@@ -9,7 +9,8 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to edit_mission_path(params[:mission_id]), notice: t('.project.create.succeeded')
     else
-      render 'new', alert: t('.project.create.failed')
+      flash[:alert] = t('.failed')
+      render 'new'
     end
   end
 

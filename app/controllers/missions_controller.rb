@@ -11,7 +11,8 @@ class MissionsController < ApplicationController
     if @mission.save
       redirect_to missions_path, notice: t('.succeeded')
     else
-      render 'new', alert: t('.failed')
+      flash[:alert] = t('.failed')
+      render 'new'
     end
   end
 
@@ -25,7 +26,8 @@ class MissionsController < ApplicationController
     if @mission.update(mission_params)
       redirect_to edit_mission_path, notice: t('.succeeded')
     else
-      render 'edit', alert: t('.failed')
+      flash[:alert] = t('.failed')
+      render 'edit'
     end
   end
 
