@@ -1,7 +1,13 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :fetch_mission, only: %i[new create]
-  before_action :fetch_project, only: %i[edit show destroy]
+  before_action :fetch_project, only: %i[edit update destroy]
+
+  def new
+    @project = @mission.projects.build
+  end
+
+  def edit; end
 
   def create
     @project = @mission.projects.build(project_params)
@@ -14,13 +20,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def new
-    @project = @mission.projects.build
-  end
-
-  def edit; end
-
-  def show; end
+  def update; end
 
   def destroy
     if @project.destroy

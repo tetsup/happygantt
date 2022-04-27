@@ -1,9 +1,16 @@
 class MissionsController < ApplicationController
   before_action :authenticate_user!
   before_action :fetch_mission, only: %i[edit update destroy]
+
   def index
     @missions = current_user.missions.all
   end
+
+  def new
+    @mission = current_user.missions.build
+  end
+
+  def edit; end
 
   def create
     @mission = current_user.missions.build(mission_params)
@@ -15,12 +22,6 @@ class MissionsController < ApplicationController
       render 'new'
     end
   end
-
-  def new
-    @mission = current_user.missions.build
-  end
-
-  def edit; end
 
   def update
     if @mission.update(mission_params)
