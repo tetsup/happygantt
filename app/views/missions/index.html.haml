@@ -1,21 +1,4 @@
 %h2
   = t('.index')
 = button_to t('.new'), new_mission_path, method: :get
-%table.table
-  %thead
-    %tr
-      %td
-        = t('.name')
-      %td
-        = t('.description')
-      %td
-        = t('.status')
-  %tbody
-    - @missions.each do |m|
-      %tr
-        %td
-          = m.name
-        %td
-          = m.description
-        %td
-          = m.status
+= render 'list', { missions: @missions }

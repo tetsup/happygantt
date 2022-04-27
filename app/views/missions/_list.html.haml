@@ -1,0 +1,22 @@
+%table.table
+  %thead
+    %tr
+      %td
+        = t('.name')
+      %td
+        = t('.description')
+      %td
+        = t('.status')
+      %td
+        = t('.destroy')
+  %tbody
+    - missions.each do |m|
+      %tr
+        %td
+          = link_to m.name, edit_mission_path(m.id)
+        %td
+          = m.description
+        %td
+          = m.status
+        %td
+          = button_to t('.destroy'), mission_path(m.id), method: :delete
