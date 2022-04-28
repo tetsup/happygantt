@@ -4,8 +4,8 @@ class CreateMilestones < ActiveRecord::Migration[6.1]
       t.references :project, foreign_key: true
       t.string :name, null: false
       t.string :description
-      t.datetime :due_date
-      t.datetime :closed_date
+      t.date :due_date
+      t.date :closed_date
       t.integer :status, null: false, default: 0
       t.timestamps
     end
