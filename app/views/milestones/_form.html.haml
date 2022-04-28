@@ -1,7 +1,7 @@
 = simple_form_for milestone, url: project_milestones_path(milestone.project.id) do |f|
-  = f.input_field :name, label: 'label'
-  = f.text_field :description
-  = f.input_field :due_date, as: :datetime
-  = f.input_field :closed_date, as: :datetime
-  = f.select :status, Milestone.statuses.keys, {}, placeholder: 0
-  = f.button :submit
+  = f.input :name
+  = f.input :description, as: :text
+  = f.input :due_date, as: :date
+  = f.input :closed_date, as: :date
+  = f.input :status, collection: Milestone.statuses_i18n
+  = f.button :submit, class: 'btn-success'

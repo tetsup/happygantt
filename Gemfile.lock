@@ -91,6 +91,8 @@ GEM
     devise-bootstrap-views (1.1.0)
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     erubis (2.7.0)
     ffi (1.15.5)
@@ -276,6 +278,7 @@ DEPENDENCIES
   devise
   devise-bootstrap-views (~> 1.0)
   devise-i18n
+  enum_help
   haml-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)

@@ -1,6 +1,13 @@
 ja:
-  activerecord:
-    attributes:
+  simple_form:
+    "yes": 'はい'
+    "no": 'いいえ'
+    required:
+      text: '必須'
+      mark: '*'
+    error_notification:
+      default_message: "下記の問題を確認してください:"
+    labels:
       user:
         name: 'ユーザー名'
       milestone:
@@ -9,9 +16,3 @@ ja:
         due_date: '期限'
         closed_date: '完了日'
         status: 'ステータス'
-  enums:
-    milestone:
-      status:
-        notyet: '未着手'
-        doing: '実施中'
-        done: '完了'
