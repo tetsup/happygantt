@@ -2,6 +2,6 @@
   = t('.')
 = render 'form', { project: @project }
 %h3
-  = t('milestones.list')
-= button_to t('milestones.new'), new_project_milestone_path(@project.id), method: :get
+  = t('milestones.index')
+= button_to t('new'), new_project_milestone_path(@project.id), method: :get
 = render 'milestones/list', { milestones: @project.milestones }

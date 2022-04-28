@@ -1,0 +1,14 @@
+ja:
+  milestones:
+    index: 'マイルストーン一覧'
+    new: 'マイルストーン新規作成'
+    edit: 'マイルストーン編集'
+    create:
+      succeeded: 'マイルストーンが作成されました'
+      failed: 'マイルストーンの作成に失敗しました'
+    update:
+      succeeded: 'マイルストーンが更新されました'
+      failed: 'マイルストーンの更新に失敗しました'
+    destroy:
+      succeeded: 'マイルストーンが削除されました'
+      failed: 'マイルストーンの削除に失敗しました'
