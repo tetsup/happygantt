@@ -3,5 +3,5 @@
 = render 'form', { mission: @mission }
 %h3
   = t('projects.index')
-= button_to t('new'), new_mission_project_path(@mission.id), method: :get
+= button_to t('new'), new_mission_project_path(@mission.id), method: :get, class: 'btn btn-primary'
 = render 'projects/list', { projects: @mission.projects }

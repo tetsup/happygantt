@@ -1,5 +1,5 @@
 = simple_form_for mission do |f|
-  = f.input_field :name, label: 'label'
-  = f.text_field :description
-  = f.select :status, Mission.statuses.keys, {}, placeholder: 0
-  = f.button :submit
+  = f.input :name
+  = f.input :description, as: :text
+  = f.input :status, collection: Mission.statuses_i18n, include_blank: false
+  = f.button :submit, class: 'btn-success'

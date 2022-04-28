@@ -1,4 +1,4 @@
 %h2
   = t('.')
-= button_to t('new'), new_mission_path, method: :get
+= button_to t('new'), new_mission_path, method: :get, class: 'btn btn-primary'
 = render 'list', { missions: @missions }

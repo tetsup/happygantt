@@ -8,11 +8,15 @@ ja:
     error_notification:
       default_message: "下記の問題を確認してください:"
     labels:
-      user:
-        name: 'ユーザー名'
-      milestone:
-        name: 'マイルストーン名'
+      defaults:
+        name: '名前'
         description: '解説'
         due_date: '期限'
         closed_date: '完了日'
         status: 'ステータス'
+      user:
+        name: 'ユーザー名'
+      milestone:
+        name: 'マイルストーン名'
+      mission:
+        name: 'ミッション名'

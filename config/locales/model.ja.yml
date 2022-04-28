@@ -15,3 +15,13 @@ ja:
         notyet: '未着手'
         doing: '実施中'
         done: '完了'
+    mission:
+      status:
+        notyet: '未着手'
+        doing: '実施中'
+        done: '完了'
+    project:
+      status:
+        notyet: '未着手'
+        doing: '実施中'
+        done: '完了'
