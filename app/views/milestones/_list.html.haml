@@ -13,7 +13,7 @@
     - milestones.each do |m|
       %tr
         %td
-          = m.name
+          = link_to m.name, edit_milestone_path(m.id)
         %td
           = m.due_date
         %td

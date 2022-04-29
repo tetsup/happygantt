@@ -1,4 +1,5 @@
 class Milestone < ApplicationRecord
+  has_many :requirements, dependent: :destroy
   belongs_to :project
 
   enum status: %i[notyet doing done]

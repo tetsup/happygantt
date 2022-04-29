@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :missions, through: :mission_user_relationships
   has_many :projects, through: :missions
   has_many :milestones, through: :projects
+  has_many :requirements, through: :milestones
 
   validates :time_zone, inclusion: { in: ActiveSupport::TimeZone.all.map(&:name) }
 end

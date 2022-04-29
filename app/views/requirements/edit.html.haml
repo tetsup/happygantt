@@ -1,0 +1,7 @@
+%h2
+  = t('.')
+= render 'form', { requirement: @requirement }
+%h3
+  = t('tasks.index')
+= button_to t('new'), new_requirement_task_path(@requirement.id), method: :get, class: 'btn btn-primary'
+= render 'tasks/list', { tasks: @requirement.tasks }

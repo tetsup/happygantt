@@ -1,0 +1,4 @@
+= simple_form_for requirement, url: milestone_requirements_path(requirement.milestone.id) do |f|
+  = f.input :name
+  = f.input :description, as: :text
+  = f.button :submit, class: 'btn-success'

@@ -1,0 +1,21 @@
+%table.table
+  %thead
+    %tr
+      %td
+        = t('.name')
+      %td
+        = t('.description')
+      %td
+        = t('.task_count_by_status')
+      %td
+        = t('.destroy')
+  - requirements.each do |r|
+    %tr
+      %td
+        = link_to r.name, edit_requirement_path(r.id)
+      %td
+        = r.description
+      %td
+        = r.count_by_status
+      %td
+        = button_to t('destroy'), requirement_path(r.id), method: :delete, class: 'btn btn-danger btn-sm'

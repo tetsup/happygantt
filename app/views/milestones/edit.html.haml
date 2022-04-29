@@ -1,0 +1,7 @@
+%h2
+  = t('.')
+= render 'form', { milestone: @milestone }
+%h3
+  = t('requirement.index')
+= button_to t('new'), new_milestone_requirement_path(@milestone.id), method: :get, class: 'btn btn-primary'
+= render 'requirements/list', { requirements: @milestone.requirements }
