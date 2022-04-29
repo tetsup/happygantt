@@ -2,6 +2,6 @@
   = f.input :name
   = f.input :description, as: :text
   = f.input :due_date, as: :date, html5: true, input_html: { value: milestone.due_date || Date.today }
-  = f.input :closed_date, as: :date, html5: true, input_html: { value: milestone.closed_date || Date.today }
+  = f.input :closed_date, as: :date, html5: true, input_html: { value: milestone.closed_date }
   = f.input :status, collection: Milestone.statuses_i18n, include_blank: false
   = f.button :submit, class: 'btn-success'
