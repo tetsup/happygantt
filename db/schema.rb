@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_27_070256) do
+ActiveRecord::Schema.define(version: 2022_04_27_140930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "milestones", force: :cascade do |t|
+    t.bigint "project_id"
+    t.string "name", null: false
+    t.string "description"
+    t.date "due_date"
+    t.date "closed_date"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id", "name"], name: "index_milestones_on_project_id_and_name", unique: true
+    t.index ["project_id"], name: "index_milestones_on_project_id"
+  end
 
   create_table "mission_user_relationships", force: :cascade do |t|
     t.bigint "mission_id"
@@ -55,6 +68,30 @@ ActiveRecord::Schema.define(version: 2022_04_27_070256) do
     t.index ["mission_id"], name: "index_projects_on_mission_id"
   end
 
+  create_table "requirements", force: :cascade do |t|
+    t.bigint "milestone_id"
+    t.string "name", null: false
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["milestone_id", "name"], name: "index_requirements_on_milestone_id_and_name", unique: true
+    t.index ["milestone_id"], name: "index_requirements_on_milestone_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "requirement_id"
+    t.string "name", null: false
+    t.datetime "planned_start_date"
+    t.datetime "planned_end_date"
+    t.datetime "started_date"
+    t.datetime "ended_date"
+    t.integer "status", default: 0, null: false
+    t.integer "costs", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["requirement_id"], name: "index_tasks_on_requirement_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -70,9 +107,12 @@ ActiveRecord::Schema.define(version: 2022_04_27_070256) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "milestones", "projects"
   add_foreign_key "mission_user_relationships", "missions"
   add_foreign_key "mission_user_relationships", "users"
   add_foreign_key "project_user_relationships", "projects"
   add_foreign_key "project_user_relationships", "users"
   add_foreign_key "projects", "missions"
+  add_foreign_key "requirements", "milestones"
+  add_foreign_key "tasks", "requirements"
 end

@@ -1,4 +1,5 @@
 class Requirement < ApplicationRecord
+  has_many :tasks
   belongs_to :milestone
 
   validates :name, presence: true, uniqueness: { scope: :milestone_id }, length: { maximum: 20 }

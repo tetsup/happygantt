@@ -1,0 +1,21 @@
+%table.table
+  %thead
+    %tr
+      %td
+        = t('.name')
+      %td
+        = t('.planned')
+      %td
+        = t('.actual')
+      %td
+        = t('.destroy')
+  - tasks.each do |task|
+    %tr
+      %td
+        = link_to task.name, edit_task_path(task.id)
+      %td
+        = task.planned
+      %td
+        = task.actual
+      %td
+        = button_to t('destroy'), task_path(task.id), method: :delete, class: 'btn btn-danger btn-sm'

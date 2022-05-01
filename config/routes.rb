@@ -10,5 +10,12 @@ Rails.application.routes.draw do
     resources :projects, only: %i[edit update destroy] do
       resources :milestones, only: %i[index new create]
     end
+    resources :milestones, only: %i[edit update destroy] do
+      resources :requirements, only: %i[index new create]
+    end
+    resources :requirements, only: %i[edit update destroy] do
+      resources :tasks, only: %i[index new create]
+    end
+    resources :tasks, only: %i[edit update destroy]
   end
 end
