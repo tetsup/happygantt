@@ -81,10 +81,11 @@ ActiveRecord::Schema.define(version: 2022_04_27_140930) do
   create_table "tasks", force: :cascade do |t|
     t.bigint "requirement_id"
     t.string "name", null: false
-    t.datetime "planned_start_date"
-    t.datetime "planned_end_date"
-    t.datetime "started_date"
-    t.datetime "ended_date"
+    t.string "description"
+    t.date "planned_start_date"
+    t.date "planned_end_date"
+    t.date "started_date"
+    t.date "ended_date"
     t.integer "status", default: 0, null: false
     t.integer "costs", default: 1
     t.datetime "created_at", precision: 6, null: false
