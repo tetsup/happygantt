@@ -28,7 +28,13 @@ class MilestonesController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    if @milestone.destroy
+      redirect_back fallback_location: missions_path, notice: t('.succeeded')
+    else
+      flash[:warning] = t('.failed')
+    end
+  end
 
   private
 

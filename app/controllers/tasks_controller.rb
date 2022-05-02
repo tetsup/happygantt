@@ -28,7 +28,13 @@ class TasksController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    if @task.destroy
+      redirect_back fallback_location: missions_path, notice: t('.succeeded')
+    else
+      flash[:warning] = t('.failed')
+    end
+  end
 
   private
 
