@@ -6,9 +6,9 @@
       %td
         = t('activerecord.attributes.milestone.due_date')
       %td
-        = t('activerecord.attributes.milestone.closed_date')
-      %td
         = t('activerecord.attributes.milestone.status')
+      %td
+        = t('activerecord.attributes.milestone.task_count_by_status')
       %td
         = t('destroy')
   %tbody
@@ -19,8 +19,8 @@
         %td
           = I18n.l(m.due_date)
         %td
-          = I18n.l(m.closed_date)
-        %td
           = m.status_i18n
+        %td
+          = m.count_all_tasks_by_status.join(' / ')
         %td
           = button_to t('destroy'), milestone_path(m.id), method: :delete, class: 'btn btn-danger btn-sm'

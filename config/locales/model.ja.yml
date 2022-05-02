@@ -9,6 +9,7 @@ ja:
         due_date: '期限'
         closed_date: '完了日'
         status: 'ステータス'
+        task_count_by_status: 'タスク件数(未/中/済)'
       mission:
         name: 'ミッション名'
         description: '解説'
