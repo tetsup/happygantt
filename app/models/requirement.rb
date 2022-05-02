@@ -5,5 +5,17 @@ class Requirement < ApplicationRecord
   validates :name, presence: true, uniqueness: { scope: :milestone_id }, length: { maximum: 20 }
   validates :description, length: { maximum: 200 }
 
-  def count_by_status; end
+  def count_tasks
+    tasks.count
+  end
+
+  def count_tasks_by_status(status)
+    tasks.filter_by_status(status).count
+  end
+
+  def count_all_tasks_by_status
+    Task.statuses.keys.map do |s|
+      count_tasks_by_status(s)
+    end
+  end
 end

@@ -16,6 +16,6 @@
       %td
         = r.description
       %td
-        = r.count_by_status
+        = r.count_all_tasks_by_status.join(' / ')
       %td
         = button_to t('destroy'), requirement_path(r.id), method: :delete, class: 'btn btn-danger btn-sm'
