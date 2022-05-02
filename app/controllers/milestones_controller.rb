@@ -19,7 +19,14 @@ class MilestonesController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    if @milestone.update(milestone_params)
+      redirect_back fallback_location: edit_milestone_path(@milestone.id), notice: t('.succeeded')
+    else
+      flash[:alert] = t('.failed')
+      render 'edit'
+    end
+  end
 
   def destroy; end
 

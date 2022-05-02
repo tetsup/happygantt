@@ -1,3 +1,4 @@
 %h2
   = t('.')
-= render 'form', { task: @task }
+= simple_form_for @task, url: task_path(@task.id) do |f|
+  = render 'form', { f: f, task: @task }

@@ -20,7 +20,14 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    if @project.update(project_params)
+      redirect_back fallback_location: edit_project_path(@project.id), notice: t('.succeeded')
+    else
+      flash[:alert] = t('.failed')
+      render 'edit'
+    end
+  end
 
   def destroy
     if @project.destroy

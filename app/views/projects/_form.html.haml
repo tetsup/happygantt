@@ -1,5 +1,4 @@
-= simple_form_for project, url: mission_projects_path(project.mission.id) do |f|
-  = f.input :name
-  = f.input :description, as: :text
-  = f.input :status, collection: Project.statuses_i18n, include_blank: false
-  = f.button :submit, class: 'btn-success'
+= f.input :name
+= f.input :description, as: :text
+= f.input :status, collection: Project.statuses_i18n, include_blank: false
+= f.button :submit, class: 'btn-success'

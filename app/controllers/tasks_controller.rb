@@ -19,7 +19,14 @@ class TasksController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    if @task.update(task_params)
+      redirect_to edit_requirement_path(@task.requirement_id), notice: t('.succeeded')
+    else
+      flash[:alert] = t('.failed')
+      render 'edit'
+    end
+  end
 
   def destroy; end
 

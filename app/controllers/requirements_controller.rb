@@ -19,7 +19,14 @@ class RequirementsController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    if @requirement.update(requirement_params)
+      redirect_back fallback_location: edit_requirement_path(@requirement.id), notice: t('.succeeded')
+    else
+      flash[:alert] = t('.failed')
+      render 'edit'
+    end
+  end
 
   def destroy; end
 
