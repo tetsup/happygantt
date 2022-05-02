@@ -17,9 +17,9 @@
         %td
           = link_to m.name, edit_milestone_path(m.id)
         %td
-          = m.due_date
+          = I18n.l(m.due_date)
         %td
-          = m.closed_date
+          = I18n.l(m.closed_date)
         %td
           = m.status_i18n
         %td
