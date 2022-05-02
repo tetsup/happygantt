@@ -1,0 +1,14 @@
+ja:
+  tasks:
+    index: 'タスク一覧'
+    new: 'タスク新規作成'
+    edit: 'タスク編集'
+    create:
+      succeeded: 'タスクが作成されました'
+      failed: 'タスクの作成に失敗しました'
+    update:
+      succeeded: 'タスクが更新されました'
+      failed: 'タスクの更新に失敗しました'
+    destroy:
+      succeeded: 'タスクが削除されました'
+      failed: 'タスクの削除に失敗しました'

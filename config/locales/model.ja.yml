@@ -9,6 +9,29 @@ ja:
         due_date: '期限'
         closed_date: '完了日'
         status: 'ステータス'
+      mission:
+        name: 'ミッション名'
+        description: '解説'
+        status: 'ステータス'
+      project:
+        name: 'プロジェクト名'
+        description: '解説'
+        status: 'ステータス'
+      requirement:
+        name: '要件名'
+        description: '解説'
+        task_count_by_status: 'タスク件数(未/中/済)'
+      task:
+        name: 'タスク名'
+        description: '解説'
+        planned: '計画'
+        planned_start_date: '計画開始日'
+        planned_end_date: '計画終了日'
+        actual: '実績'
+        started_date: '実績開始日'
+        ended_date: '実績終了日'
+        status: 'ステータス'
+        costs: 'コスト'
   enums:
     milestone:
       status:
@@ -21,6 +44,11 @@ ja:
         doing: '実施中'
         done: '完了'
     project:
+      status:
+        notyet: '未着手'
+        doing: '実施中'
+        done: '完了'
+    task:
       status:
         notyet: '未着手'
         doing: '実施中'

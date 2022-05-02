@@ -2,13 +2,15 @@
   %thead
     %tr
       %td
-        = t('model.milestones.name')
+        = t('activerecord.attributes.milestone.name')
       %td
-        = t('model.milestones.due_date')
+        = t('activerecord.attributes.milestone.due_date')
       %td
-        = t('model.milestones.closed_date')
+        = t('activerecord.attributes.milestone.closed_date')
       %td
-        = t('model.milestones.status')
+        = t('activerecord.attributes.milestone.status')
+      %td
+        = t('destroy')
   %tbody
     - milestones.each do |m|
       %tr
@@ -20,3 +22,5 @@
           = m.closed_date
         %td
           = m.status_i18n
+        %td
+          = button_to t('destroy'), milestone_path(m.id), method: :delete, class: 'btn btn-danger btn-sm'

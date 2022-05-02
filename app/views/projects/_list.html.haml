@@ -2,24 +2,20 @@
   %thead
     %tr
       %td
-        = t('mission.name')
+        = t('activerecord.attributes.project.name')
       %td
-        = t('.name')
+        = t('activerecord.attributes.project.description')
       %td
-        = t('.description')
+        = t('activerecord.attributes.project.status')
       %td
-        = t('.status')
-      %td
-        = t('.destroy')
+        = t('destroy')
   - projects.each do |p|
     %tr
-      %td
-        = link_to p.mission.name, edit_mission_path(p.mission.id)
       %td
         = link_to p.name, edit_project_path(p.id)
       %td
         = p.description
       %td
-        = p.status
+        = p.status_i18n
       %td
         = button_to t('destroy'), project_path(p.id), method: :delete, class: 'btn btn-danger btn-sm'

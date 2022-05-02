@@ -1,0 +1,14 @@
+ja:
+  requirements:
+    index: '要件一覧'
+    new: '要件新規作成'
+    edit: '要件編集'
+    create:
+      succeeded: '要件が作成されました'
+      failed: '要件の作成に失敗しました'
+    update:
+      succeeded: '要件が更新されました'
+      failed: '要件の更新に失敗しました'
+    destroy:
+      succeeded: '要件が削除されました'
+      failed: '要件の削除に失敗しました'

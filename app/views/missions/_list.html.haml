@@ -2,13 +2,13 @@
   %thead
     %tr
       %td
-        = t('.name')
+        = t('activerecord.attributes.mission.name')
       %td
-        = t('.description')
+        = t('activerecord.attributes.mission.description')
       %td
-        = t('.status')
+        = t('activerecord.attributes.mission.status')
       %td
-        = t('.destroy')
+        = t('destroy')
   %tbody
     - missions.each do |m|
       %tr
@@ -17,6 +17,6 @@
         %td
           = m.description
         %td
-          = m.status
+          = m.status_i18n
         %td
           = button_to t('destroy'), mission_path(m.id), method: :delete, class: 'btn btn-danger btn-sm'
