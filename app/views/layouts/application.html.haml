@@ -1,8 +1,8 @@
 !!!
 %html
   = render 'layouts/header'
-  %body{ style: 'padding-top: 5rem;' }
+  %body
     = render 'layouts/navbar'
-    = render 'layouts/alert'
-    .container
+    .container{ style: 'padding-top: 4rem;' }
+      = render 'layouts/alert'
       = yield
