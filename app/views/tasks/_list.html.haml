@@ -6,6 +6,8 @@
       %td
         = t('activerecord.attributes.task.status')
       %td
+        = t('activerecord.attributes.task.costs')
+      %td
         = t('activerecord.attributes.task.planned')
       %td
         = t('activerecord.attributes.task.actual')
@@ -17,6 +19,8 @@
         = link_to task.name, edit_task_path(task.id)
       %td
         = task.status_i18n
+      %td
+        = task.costs
       %td
         = task.planned
       %td
