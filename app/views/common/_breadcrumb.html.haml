@@ -1,0 +1,9 @@
+%nav{ aria: { label: 'breadcrumb' } }
+  %ol.breadcrumb
+    - breadcrumbs.each_with_index do |b, index|
+      - if index < breadcrumbs.size - 1
+        %li.breadcrumb-item
+          = link_to b[:name], b[:path]
+      - else
+        %li.breadcrumb-item.active
+          = b[:name]

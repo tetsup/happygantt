@@ -1,3 +1,4 @@
+= render 'common/breadcrumb', { breadcrumbs: @project.breadcrumbs }
 %h2
   = t('.')
 = simple_form_for @project, url: project_path(@project.id) do |f|

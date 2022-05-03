@@ -18,4 +18,15 @@ class Requirement < ApplicationRecord
       count_tasks_by_status(s)
     end
   end
+
+  def edit_path
+    Rails.application.routes.url_helpers.edit_requirement_path(id: id)
+  end
+
+  def breadcrumbs
+    [
+      *milestone.breadcrumbs,
+      { name: name, path: edit_path }
+    ]
+  end
 end
