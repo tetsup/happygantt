@@ -36,14 +36,14 @@ RSpec.describe User, type: :model do
       expect(user.errors[:time_zone]).to include(I18n.t('errors.messages.inclusion'))
     end
 
-    it 'is invalid with duplicate name' do
+    it 'is invalid with duplicated name' do
       FactoryBot.create(:user)
       user = FactoryBot.build(:user)
       user.valid?
       expect(user.errors[:name]).to include(I18n.t('errors.messages.taken'))
     end
 
-    it 'is invalid with duplicate email' do
+    it 'is invalid with duplicated email' do
       FactoryBot.create(:user)
       user = FactoryBot.build(:user)
       user.valid?

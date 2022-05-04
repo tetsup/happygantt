@@ -24,7 +24,7 @@ RSpec.describe Mission, type: :model do
       expect(mission.errors[:name]).to include(I18n.t('errors.messages.too_long', count: 20))
     end
 
-    it 'is invalid with duplicate name' do
+    it 'is invalid with duplicated name' do
       FactoryBot.create(:mission)
       mission = FactoryBot.build(:mission)
       mission.valid?
