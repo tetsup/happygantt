@@ -5,6 +5,7 @@ class Milestone < ApplicationRecord
 
   enum status: %i[notyet doing done]
   validates :name, presence: true, uniqueness: { scope: :project_id }, length: { maximum: 50 }
+  validates :status, presence: true
 
   def count_tasks
     tasks.count
