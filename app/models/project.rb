@@ -7,6 +7,7 @@ class Project < ApplicationRecord
   enum status: %i[notyet doing done]
   validates :name, presence: true, uniqueness: { scope: :mission_id }, length: { maximum: 20 }
   validates :description, length: { maximum: 200 }
+  validates :status, presence: true
 
   def edit_path
     Rails.application.routes.url_helpers.edit_project_path(id:)
