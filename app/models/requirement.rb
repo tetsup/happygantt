@@ -20,13 +20,13 @@ class Requirement < ApplicationRecord
   end
 
   def edit_path
-    Rails.application.routes.url_helpers.edit_requirement_path(id: id)
+    Rails.application.routes.url_helpers.edit_requirement_path(id:)
   end
 
   def breadcrumbs
     [
       *milestone.breadcrumbs,
-      { name: name, path: edit_path }
+      { name:, path: edit_path }
     ]
   end
 end

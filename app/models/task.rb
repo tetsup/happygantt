@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   validates :name, presence: true, uniqueness: { scope: :requirement_id }, length: { maximum: 20 }
   validates :description, length: { maximum: 200 }
 
-  scope :filter_by_status, -> (status) { where(status: status) }
+  scope :filter_by_status, -> (status) { where(status:) }
 
   def planned
     "#{I18n.l(planned_start_date)} - #{I18n.l(planned_end_date, format: :short)}"
@@ -16,13 +16,13 @@ class Task < ApplicationRecord
   end
 
   def edit_path
-    Rails.application.routes.url_helpers.edit_task_path(id: id)
+    Rails.application.routes.url_helpers.edit_task_path(id:)
   end
 
   def breadcrumbs
     [
       *requirement.breadcrumbs,
-      { name: name, path: edit_path }
+      { name:, path: edit_path }
     ]
   end
 end

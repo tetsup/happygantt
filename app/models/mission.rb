@@ -9,10 +9,10 @@ class Mission < ApplicationRecord
   validates :status, presence: true
 
   def edit_path
-    Rails.application.routes.url_helpers.edit_mission_path(id: id)
+    Rails.application.routes.url_helpers.edit_mission_path(id:)
   end
 
   def breadcrumbs
-    [{ name: name, path: edit_path }]
+    [{ name:, path: edit_path }]
   end
 end
