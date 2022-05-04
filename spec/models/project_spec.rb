@@ -29,5 +29,21 @@ RSpec.describe Project, type: :model do
       project.valid?
       expect(project.errors[:name]).to include(I18n.t('errors.messages.too_long', count: 20))
     end
+
+    it 'is invalid with duplicate name on same mission' do
+      mission = FactoryBot.create(:mission)
+      FactoryBot.create(:project, mission:)
+      project = FactoryBot.build(:project, mission:)
+      project.valid?
+      expect(project.errors[:name]).to include(I18n.t('errors.messages.taken'))
+    end
+
+    it 'is valid with duplicate name on different mission' do
+      mission = FactoryBot.create(:mission)
+      mission_2 = FactoryBot.create(:mission, name: '地球を浄化する')
+      FactoryBot.create(:project, mission:)
+      project = FactoryBot.build(:project, mission: mission_2)
+      expect(project).to be_valid
+    end
   end
 end
