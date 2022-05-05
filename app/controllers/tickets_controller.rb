@@ -1,17 +1,17 @@
-class TasksController < ApplicationController
+class TicketsController < ApplicationController
   before_action :authenticate_user!
-  before_action :fetch_task, only: %i[edit update destroy]
+  before_action :fetch_ticket, only: %i[edit update destroy]
   before_action :fetch_requirement, only: %i[new create]
 
   def new
-    @task = @requirement.tasks.build
+    @ticket = @requirement.tickets.build
   end
 
   def edit; end
 
   def create
-    @task = @requirement.tasks.build(task_params)
-    if @task.save
+    @ticket = @requirement.tickets.build(ticket_params)
+    if @ticket.save
       redirect_to edit_requirement_path(@requirement.id), notice: t('.succeeded')
     else
       flash[:alert] = t('.failed')
@@ -20,8 +20,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      redirect_to edit_requirement_path(@task.requirement_id), notice: t('.succeeded')
+    if @ticket.update(ticket_params)
+      redirect_to edit_requirement_path(@ticket.requirement_id), notice: t('.succeeded')
     else
       flash[:alert] = t('.failed')
       render 'edit'
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    if @task.destroy
+    if @ticket.destroy
       redirect_back fallback_location: missions_path, notice: t('.succeeded')
     else
       flash[:warning] = t('.failed')
@@ -38,16 +38,16 @@ class TasksController < ApplicationController
 
   private
 
-  def fetch_task
-    @task = current_user.tasks.find(params[:id])
+  def fetch_ticket
+    @ticket = current_user.tickets.find(params[:id])
   end
 
   def fetch_requirement
     @requirement = current_user.requirements.find(params[:requirement_id])
   end
 
-  def task_params
-    params.require(:task).permit(:name, :description, :planned_start_date, :planned_end_date,
+  def ticket_params
+    params.require(:ticket).permit(:name, :description, :planned_start_date, :planned_end_date,
                                  :started_date, :ended_date, :status, :costs)
   end
 end

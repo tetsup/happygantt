@@ -1,4 +1,4 @@
-class Task < ApplicationRecord
+class Ticket < ApplicationRecord
   belongs_to :requirement
 
   enum status: %i[notyet doing done]
@@ -16,7 +16,7 @@ class Task < ApplicationRecord
   end
 
   def edit_path
-    Rails.application.routes.url_helpers.edit_task_path(id:)
+    Rails.application.routes.url_helpers.edit_ticket_path(id:)
   end
 
   def breadcrumbs

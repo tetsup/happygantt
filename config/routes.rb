@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       resources :requirements, only: %i[index new create]
     end
     resources :requirements, only: %i[edit update destroy] do
-      resources :tasks, only: %i[index new create]
+      resources :tickets, only: %i[index new create]
     end
-    resources :tasks, only: %i[edit update destroy]
+    resources :tickets, only: %i[edit update destroy]
   end
 end

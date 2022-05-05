@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_27_140930) do
+ActiveRecord::Schema.define(version: 2022_05_05_060745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_04_27_140930) do
     t.index ["milestone_id"], name: "index_requirements_on_milestone_id"
   end
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "tickets", force: :cascade do |t|
     t.bigint "requirement_id"
     t.string "name", null: false
     t.string "description"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2022_04_27_140930) do
     t.integer "costs", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["requirement_id"], name: "index_tasks_on_requirement_id"
+    t.index ["requirement_id"], name: "index_tickets_on_requirement_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,5 +115,5 @@ ActiveRecord::Schema.define(version: 2022_04_27_140930) do
   add_foreign_key "project_user_relationships", "users"
   add_foreign_key "projects", "missions"
   add_foreign_key "requirements", "milestones"
-  add_foreign_key "tasks", "requirements"
+  add_foreign_key "tickets", "requirements"
 end
