@@ -3,6 +3,7 @@
   = t('.')
 = simple_form_for @project, url: project_path(@project.id) do |f|
   = render 'form', { f: f }
+%hr
 %h3
   = t('milestones.index')
 = button_to t('new'), new_project_milestone_path(@project.id), method: :get, class: 'btn btn-primary'

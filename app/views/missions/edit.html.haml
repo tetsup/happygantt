@@ -2,6 +2,7 @@
 %h2
   = t('.')
 = render 'form', { mission: @mission }
+%hr
 %h3
   = t('projects.index')
 = button_to t('new'), new_mission_project_path(@mission.id), method: :get, class: 'btn btn-primary'
