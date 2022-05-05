@@ -28,4 +28,12 @@ RSpec.describe 'Milestones', type: :system do
     expect(page).to have_content I18n.t('milestones.update.succeeded')
     expect(milestone.reload.status).to eq 'doing'
   end
+
+  it 'destroies a milestone as a user' do
+    visit edit_project_path(id: milestone.project.id)
+    expect {
+      click_button I18n.t('destroy')
+      expect(page).to have_content I18n.t('milestones.destroy.succeeded')
+    }.to change(user.milestones, :count).by(-1)
+  end
 end

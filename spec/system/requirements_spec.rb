@@ -28,4 +28,12 @@ RSpec.describe 'Requirements', type: :system do
     expect(page).to have_content I18n.t('requirements.update.succeeded')
     expect(requirement.reload.name).to eq 'やっぱりやさしさは登録できない'
   end
+
+  it 'destroies a requirement as a user' do
+    visit edit_milestone_path(id: requirement.milestone_id)
+    expect {
+      click_button I18n.t('destroy')
+      expect(page).to have_content I18n.t('requirements.destroy.succeeded')
+    }.to change(user.requirements, :count).by(-1)
+  end
 end

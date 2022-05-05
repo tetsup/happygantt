@@ -27,4 +27,12 @@ RSpec.describe 'Projects', type: :system do
     expect(page).to have_content I18n.t('projects.update.succeeded')
     expect(project.reload.status).to eq 'doing'
   end
+
+  it 'destroies a project as a user' do
+    visit edit_mission_path(id: project.mission.id)
+    expect {
+      click_button I18n.t('destroy')
+      expect(page).to have_content I18n.t('projects.destroy.succeeded')
+    }.to change(user.projects, :count).by(-1)
+  end
 end

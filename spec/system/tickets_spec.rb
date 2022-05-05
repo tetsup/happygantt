@@ -30,4 +30,12 @@ RSpec.describe 'Tickets', type: :system do
     expect(page).to have_content I18n.t('tickets.update.succeeded')
     expect(ticket.reload.status).to eq 'doing'
   end
+
+  it 'destroies a ticket as a user' do
+    visit edit_requirement_path(id: ticket.requirement.id)
+    expect {
+      click_button I18n.t('destroy')
+      expect(page).to have_content I18n.t('tickets.destroy.succeeded')
+    }.to change(user.tickets, :count).by(-1)
+  end
 end

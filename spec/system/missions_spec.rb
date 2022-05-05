@@ -26,4 +26,13 @@ RSpec.describe 'Missions', type: :system do
     expect(page).to have_content I18n.t('missions.update.succeeded')
     expect(mission.reload.status).to eq 'doing'
   end
+
+  it 'destroies a mission as a user' do
+    mission
+    visit missions_path
+    expect {
+      click_button I18n.t('destroy')
+      expect(page).to have_content I18n.t('missions.destroy.succeeded')
+    }.to change(user.missions, :count).by(-1)
+  end
 end
