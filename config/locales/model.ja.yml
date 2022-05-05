@@ -1,5 +1,12 @@
 ja:
   activerecord:
+    models:
+      user: 'ユーザー'
+      mission: 'ミッション'
+      project: 'プロジェクト'
+      milestone: 'マイルストーン'
+      requirement: '要件'
+      ticket: 'チケット'
     attributes:
       user:
         name: 'ユーザー名'
