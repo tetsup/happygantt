@@ -1,0 +1,9 @@
+= f.input :name
+= f.input :description, as: :text
+= f.input :planned_start_date, as: :date, html5: true, input_html: { value: ticket.planned_start_date || Date.today }
+= f.input :planned_end_date, as: :date, html5: true, input_html: { value: ticket.planned_end_date || Date.today }
+= f.input :started_date, as: :date, html5: true, input_html: { value: ticket.started_date }
+= f.input :ended_date, as: :date, html5: true, input_html: { value: ticket.ended_date }
+= f.input :status, collection: Ticket.statuses_i18n, include_blank: false
+= f.input :costs
+= f.button :submit, class: 'btn-success'

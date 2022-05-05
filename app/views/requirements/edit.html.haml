@@ -4,6 +4,6 @@
 = simple_form_for @requirement, url: requirement_path(@requirement.id) do |f|
   = render 'form', { f: f }
 %h3
-  = t('tasks.index')
-= button_to t('new'), new_requirement_task_path(@requirement.id), method: :get, class: 'btn btn-primary'
-= render 'tasks/list', { tasks: @requirement.tasks }
+  = t('tickets.index')
+= button_to t('new'), new_requirement_ticket_path(@requirement.id), method: :get, class: 'btn btn-primary'
+= render 'tickets/list', { tickets: @requirement.tickets }

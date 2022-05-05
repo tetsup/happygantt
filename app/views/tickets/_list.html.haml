@@ -1,0 +1,29 @@
+%table.table
+  %thead
+    %tr
+      %td
+        = t('activerecord.attributes.ticket.name')
+      %td
+        = t('activerecord.attributes.ticket.status')
+      %td
+        = t('activerecord.attributes.ticket.costs')
+      %td
+        = t('activerecord.attributes.ticket.planned')
+      %td
+        = t('activerecord.attributes.ticket.actual')
+      %td
+        = t('destroy')
+  - tickets.each do |ticket|
+    %tr
+      %td
+        = link_to ticket.name, edit_ticket_path(ticket.id)
+      %td
+        = ticket.status_i18n
+      %td
+        = ticket.costs
+      %td
+        = ticket.planned
+      %td
+        = ticket.actual
+      %td
+        = button_to t('destroy'), ticket_path(ticket.id), method: :delete, class: 'btn btn-danger btn-sm'

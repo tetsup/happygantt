@@ -1,9 +1,0 @@
-= f.input :name
-= f.input :description, as: :text
-= f.input :planned_start_date, as: :date, html5: true, input_html: { value: task.planned_start_date || Date.today }
-= f.input :planned_end_date, as: :date, html5: true, input_html: { value: task.planned_end_date || Date.today }
-= f.input :started_date, as: :date, html5: true, input_html: { value: task.started_date }
-= f.input :ended_date, as: :date, html5: true, input_html: { value: task.ended_date }
-= f.input :status, collection: Task.statuses_i18n, include_blank: false
-= f.input :costs
-= f.button :submit, class: 'btn-success'

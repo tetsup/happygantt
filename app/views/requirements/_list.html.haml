@@ -6,7 +6,7 @@
       %td
         = t('activerecord.attributes.requirement.description')
       %td
-        = t('activerecord.attributes.requirement.task_count_by_status')
+        = t('activerecord.attributes.requirement.ticket_count_by_status')
       %td
         = t('destroy')
   - requirements.each do |r|
@@ -16,6 +16,6 @@
       %td
         = r.description
       %td
-        = r.count_all_tasks_by_status.join(' / ')
+        = r.count_all_tickets_by_status.join(' / ')
       %td
         = button_to t('destroy'), requirement_path(r.id), method: :delete, class: 'btn btn-danger btn-sm'

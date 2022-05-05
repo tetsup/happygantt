@@ -8,7 +8,7 @@
       %td
         = t('activerecord.attributes.milestone.status')
       %td
-        = t('activerecord.attributes.milestone.task_count_by_status')
+        = t('activerecord.attributes.milestone.ticket_count_by_status')
       %td
         = t('destroy')
   %tbody
@@ -21,6 +21,6 @@
         %td
           = m.status_i18n
         %td
-          = m.count_all_tasks_by_status.join(' / ')
+          = m.count_all_tickets_by_status.join(' / ')
         %td
           = button_to t('destroy'), milestone_path(m.id), method: :delete, class: 'btn btn-danger btn-sm'

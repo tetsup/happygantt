@@ -9,7 +9,7 @@ ja:
         due_date: '期限'
         closed_date: '完了日'
         status: 'ステータス'
-        task_count_by_status: 'タスク件数(未/中/済)'
+        ticket_count_by_status: 'チケット件数(未/中/済)'
       mission:
         name: 'ミッション名'
         description: '解説'
@@ -21,9 +21,9 @@ ja:
       requirement:
         name: '要件名'
         description: '解説'
-        task_count_by_status: 'タスク件数(未/中/済)'
-      task:
-        name: 'タスク名'
+        ticket_count_by_status: 'チケット件数(未/中/済)'
+      ticket:
+        name: 'チケット名'
         description: '解説'
         planned: '計画'
         planned_start_date: '計画開始日'
@@ -49,7 +49,7 @@ ja:
         notyet: '未着手'
         doing: '実施中'
         done: '完了'
-    task:
+    ticket:
       status:
         notyet: '未着手'
         doing: '実施中'

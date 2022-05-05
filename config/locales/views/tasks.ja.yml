@@ -1,14 +1,14 @@
 ja:
-  tasks:
-    index: 'タスク一覧'
-    new: 'タスク新規作成'
-    edit: 'タスク編集'
+  tickets:
+    index: 'チケット一覧'
+    new: 'チケット新規作成'
+    edit: 'チケット編集'
     create:
-      succeeded: 'タスクが作成されました'
-      failed: 'タスクの作成に失敗しました'
+      succeeded: 'チケットが作成されました'
+      failed: 'チケットの作成に失敗しました'
     update:
-      succeeded: 'タスクが更新されました'
-      failed: 'タスクの更新に失敗しました'
+      succeeded: 'チケットが更新されました'
+      failed: 'チケットの更新に失敗しました'
     destroy:
-      succeeded: 'タスクが削除されました'
-      failed: 'タスクの削除に失敗しました'
+      succeeded: 'チケットが削除されました'
+      failed: 'チケットの削除に失敗しました'
