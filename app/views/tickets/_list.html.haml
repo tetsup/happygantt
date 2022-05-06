@@ -16,7 +16,8 @@
   - tickets.each do |ticket|
     %tr
       %td
-        = link_to ticket.name, edit_ticket_path(ticket.id)
+        = link_to ticket.name, edit_ticket_path(ticket.id),
+          'data-bs-toggle' => 'tooltip', title: ticket.description
       %td
         = ticket.status_i18n
       %td

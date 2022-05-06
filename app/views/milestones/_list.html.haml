@@ -15,7 +15,8 @@
     - milestones.each do |m|
       %tr
         %td
-          = link_to m.name, edit_milestone_path(m.id)
+          = link_to m.name, edit_milestone_path(m.id),
+            'data-bs-toggle' => 'tooltip', title: m.description
         %td
           = I18n.l(m.due_date)
         %td
