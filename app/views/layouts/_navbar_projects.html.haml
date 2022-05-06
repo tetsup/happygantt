@@ -1,0 +1,10 @@
+%li.nav-item.dropdown
+  %a.nav-link.active.dropdown-toggle#navbar-project{
+    role: 'button', 'data-bs-toggle' => 'dropdown', 'area-expanded' => false
+  }
+    = t('activerecord.models.project')
+  %ul.dropdown-menu{ 'aria-labelledby' => 'navbar-project' }
+    - current_user.projects.each do |project|
+      %li
+        %a.dropdown-item{ href: edit_project_path(id: project.id) }
+          #{project.name}(#{project.mission.name})

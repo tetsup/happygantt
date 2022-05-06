@@ -1,0 +1,15 @@
+%li.nav-item.dropdown
+  %a.nav-link.active.dropdown-toggle#navbar-mission{
+    role: 'button', 'data-bs-toggle' => 'dropdown', 'area-expanded' => false
+  }
+    = t('activerecord.models.mission')
+  %ul.dropdown-menu{ 'aria-labelledby' => 'navbar-mission' }
+    %li
+      %a.dropdown-item{ href: missions_path }
+        = t('list')
+    %li
+      %hr.dropdown-divider
+    - current_user.missions.each do |mission|
+      %li
+        %a.dropdown-item{ href: edit_mission_path(id: mission.id) }
+          = mission.name

@@ -12,7 +12,6 @@
         %li.nav-item
           %a.nav-link.active{ 'area-current' => 'page', href: root_path }
             Home
-        %li.nav-item
-          %a.nav-link.active{ 'area-current' => 'page', href: missions_path }
-            = t('activerecord.models.mission')
+        = render 'layouts/navbar_missions'
+        = render 'layouts/navbar_projects'
       = render 'layouts/user_session'
