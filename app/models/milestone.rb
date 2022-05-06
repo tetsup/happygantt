@@ -12,7 +12,7 @@ class Milestone < ApplicationRecord
   end
 
   def count_tickets_by_status(status)
-    tickets.filter_by_status(status).count
+    tickets.where(status:).count
   end
 
   def count_all_tickets_by_status

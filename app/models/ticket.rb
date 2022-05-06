@@ -8,8 +8,6 @@ class Ticket < ApplicationRecord
   validates :started_date, presence: true, unless: :notyet?
   validates :ended_date, presence: true, if: :done?
 
-  scope :filter_by_status, ->(status) { where(status:) }
-
   def toggle_doing
     return false unless notyet?
 
