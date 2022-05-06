@@ -1,0 +1,10 @@
+%li.nav-item.dropdown
+  %a.nav-link.active.dropdown-toggle#navbar-gantt{
+    role: 'button', 'data-bs-toggle' => 'dropdown', 'area-expanded' => false
+  }
+    = t('gantt')
+  %ul.dropdown-menu{ 'aria-labelledby' => 'navbar-gantt' }
+    - current_user.missions.each do |mission|
+      %li
+        %a.dropdown-item{ href: gantt_mission_path(id: mission.id) }
+          = mission.name

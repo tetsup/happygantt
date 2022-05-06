@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
     }
     resources :missions, except: [:show] do
+      get :gantt, on: :member
       resources :projects, only: %i[index new create]
     end
     resources :projects, only: %i[edit update destroy] do

@@ -40,6 +40,8 @@ class MissionsController < ApplicationController
     end
   end
 
+  def gantt; end
+
   private
 
   def fetch_mission
