@@ -5,6 +5,8 @@ class Ticket < ApplicationRecord
   validates :name, presence: true, uniqueness: { scope: :requirement_id }, length: { maximum: 20 }
   validates :description, length: { maximum: 200 }
   validates :status, presence: true
+  validates :started_date, presence: true, unless: :notyet?
+  validates :ended_date, presence: true, if: :done?
 
   scope :filter_by_status, ->(status) { where(status:) }
 

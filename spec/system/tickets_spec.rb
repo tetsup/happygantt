@@ -26,6 +26,7 @@ RSpec.describe 'Tickets', type: :system do
   it 'updates status of a ticket as a user' do
     visit edit_ticket_path(id: ticket.id)
     select Ticket.statuses_i18n[:doing], from: 'ticket[status]'
+    fill_in 'ticket[started_date]', with: '2022-12-31'
     click_button 'commit'
     expect(page).to have_content I18n.t('tickets.update.succeeded')
     expect(ticket.reload.status).to eq 'doing'

@@ -46,5 +46,33 @@ RSpec.describe Ticket, type: :model do
       ticket = build(:ticket, requirement: requirement2)
       expect(ticket).to be_valid
     end
+
+    it 'is valid with started_date if doing' do
+      ticket = build(:ticket, :doing)
+      expect(ticket).to be_valid
+    end
+
+    it 'is invalid without started_date if doing' do
+      ticket = build(:ticket, :doing, started_date: nil)
+      ticket.valid?
+      expect(ticket.errors[:started_date]).to include(I18n.t('errors.messages.blank'))
+    end
+
+    it 'is valid with started and ended_date if done' do
+      ticket = build(:ticket, :done)
+      expect(ticket).to be_valid
+    end
+
+    it 'is invalid without started_date if done' do
+      ticket = build(:ticket, :done, started_date: nil)
+      ticket.valid?
+      expect(ticket.errors[:started_date]).to include(I18n.t('errors.messages.blank'))
+    end
+
+    it 'is invalid without ended_date if done' do
+      ticket = build(:ticket, :done, ended_date: nil)
+      ticket.valid?
+      expect(ticket.errors[:ended_date]).to include(I18n.t('errors.messages.blank'))
+    end
   end
 end

@@ -20,5 +20,16 @@ FactoryBot.define do
     trait :with_long_name do
       name { 'まず一番安い剣と盾を買う、そのためにお金が必要' }
     end
+
+    trait :doing do
+      status { :doing }
+      started_date { '2022-12-31' }
+    end
+
+    trait :done do
+      status { :done }
+      started_date { '2022-12-31' }
+      ended_date { '2023-01-01' }
+    end
   end
 end
