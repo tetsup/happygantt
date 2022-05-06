@@ -1,6 +1,7 @@
 class MilestonesController < ApplicationController
   before_action :authenticate_user!
   before_action :fetch_milestone, only: %i[edit update destroy]
+  before_action :fetch_requirements, only: [:edit]
   before_action :fetch_project, only: %i[new create]
 
   def new
@@ -40,6 +41,10 @@ class MilestonesController < ApplicationController
 
   def fetch_milestone
     @milestone = current_user.milestones.find(params[:id])
+  end
+
+  def fetch_requirements
+    @requirements = current_user.requirements.where(milestone_id: params[:id]).includes_tickets_by_status.all
   end
 
   def fetch_project

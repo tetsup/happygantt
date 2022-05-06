@@ -7,4 +7,4 @@
 %h3
   = t('requirements.index')
 = button_to t('new'), new_milestone_requirement_path(@milestone.id), method: :get, class: 'btn btn-primary'
-= render 'requirements/list', { requirements: @milestone.requirements }
+= render 'requirements/list', { requirements: @requirements }

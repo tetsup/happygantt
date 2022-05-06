@@ -16,6 +16,6 @@
       %td
         = r.description
       %td
-        = r.count_all_tickets_by_status.join(' / ')
+        #{r.tickets_notyet.size} / #{r.tickets_doing.size} / #{r.tickets_done.size}
       %td
         = button_to t('destroy'), requirement_path(r.id), method: :delete, class: 'btn btn-danger btn-sm'
