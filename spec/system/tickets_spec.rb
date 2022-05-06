@@ -8,6 +8,7 @@ RSpec.describe 'Tickets', type: :system do
   let(:milestone) { create(:milestone, project:) }
   let(:requirement) { create(:requirement, milestone:) }
   let(:ticket) { create(:ticket, requirement:) }
+  let(:ticket_doing) { create(:ticket, :doing, requirement:) }
 
   before do
     sign_in_as user
@@ -35,8 +36,22 @@ RSpec.describe 'Tickets', type: :system do
   it 'destroies a ticket as a user' do
     visit edit_requirement_path(id: ticket.requirement.id)
     expect {
-      click_button I18n.t('destroy')
+      click_link I18n.t('destroy')
       expect(page).to have_content I18n.t('tickets.destroy.succeeded')
     }.to change(user.tickets, :count).by(-1)
+  end
+
+  it 'updates status of a ticket to doing by toggle as a user' do
+    visit edit_requirement_path(id: ticket.requirement.id)
+    click_link I18n.t('methods.ticket.update_doing')
+    expect(page).to have_content I18n.t('tickets.update_doing.succeeded')
+    expect(ticket.reload.status).to eq 'doing'
+  end
+
+  it 'updates status of a ticket to done by toggle as a user' do
+    visit edit_requirement_path(id: ticket_doing.requirement.id)
+    click_link I18n.t('methods.ticket.update_done')
+    expect(page).to have_content I18n.t('tickets.update_done.succeeded')
+    expect(ticket_doing.reload.status).to eq 'done'
   end
 end

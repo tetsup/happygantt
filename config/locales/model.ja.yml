@@ -61,3 +61,7 @@ ja:
         notyet: '未着手'
         doing: '実施中'
         done: '完了'
+  methods:
+    ticket:
+      update_doing: '実施中に更新'
+      update_done: '完了に更新'

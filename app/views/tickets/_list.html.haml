@@ -12,7 +12,7 @@
       %td
         = t('activerecord.attributes.ticket.actual')
       %td
-        = t('destroy')
+        = t('action')
   - tickets.each do |ticket|
     %tr
       %td
@@ -26,4 +26,17 @@
       %td
         = ticket.actual
       %td
-        = button_to t('destroy'), ticket_path(ticket.id), method: :delete, class: 'btn btn-danger btn-sm'
+        - if ticket.notyet?
+          = link_to t('methods.ticket.update_doing'),
+            update_doing_ticket_path(ticket.id),
+            method: :patch,
+            class: 'btn btn-warning btn-sm'
+        - elsif ticket.doing?
+          = link_to t('methods.ticket.update_done'),
+            update_done_ticket_path(ticket.id),
+            method: :patch,
+            class: 'btn btn-success btn-sm'
+        = link_to t('destroy'),
+          ticket_path(ticket.id),
+          method: :delete,
+          class: 'btn btn-danger btn-sm'

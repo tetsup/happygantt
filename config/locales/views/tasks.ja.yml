@@ -12,3 +12,9 @@ ja:
     destroy:
       succeeded: 'チケットが削除されました'
       failed: 'チケットの削除に失敗しました'
+    update_doing:
+      succeeded: 'チケットのステータスを実施中に変更しました'
+      failed: 'チケットのステータス変更に失敗しました'
+    update_dong:
+      succeeded: 'チケットのステータスを完了に変更しました'
+      failed: 'チケットのステータス変更に失敗しました'

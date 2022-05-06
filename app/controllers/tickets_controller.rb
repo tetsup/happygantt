@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
-  before_action :fetch_ticket, only: %i[edit update destroy]
+  before_action :fetch_ticket, only: %i[edit update destroy update_doing update_done]
   before_action :fetch_requirement, only: %i[new create]
 
   def new
@@ -25,6 +25,22 @@ class TicketsController < ApplicationController
     else
       flash[:alert] = t('.failed')
       render 'edit'
+    end
+  end
+
+  def update_doing
+    if @ticket.toggle_doing && @ticket.save
+      redirect_back fallback_location: edit_requirement_path(@ticket.requirement.id), notice: t('.succeeded')
+    else
+      redirect_back fallback_location: edit_requirement_path(@ticket.requirement.id), notice: t('.failed')
+    end
+  end
+
+  def update_done
+    if @ticket.toggle_done && @ticket.save
+      redirect_back fallback_location: edit_requirement_path(@ticket.requirement.id), notice: t('.succeeded')
+    else
+      redirect_back fallback_location: edit_requirement_path(@ticket.requirement.id), notice: t('.failed')
     end
   end
 
