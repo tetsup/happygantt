@@ -10,6 +10,20 @@ class Ticket < ApplicationRecord
 
   scope :filter_by_status, ->(status) { where(status:) }
 
+  def toggle_doing
+    return unless notyet?
+
+    self.status = :doing
+    self.started_date = Date.today
+  end
+
+  def toggle_done
+    return unless doing?
+
+    self.status = :done
+    self.ended_date = Date.today
+  end
+
   def planned
     "#{I18n.l(planned_start_date)} - #{I18n.l(planned_end_date, format: :short)}"
   end

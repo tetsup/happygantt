@@ -23,13 +23,13 @@ FactoryBot.define do
 
     trait :doing do
       status { :doing }
-      started_date { '2022-12-31' }
+      started_date { '1981-12-31' }
     end
 
     trait :done do
       status { :done }
-      started_date { '2022-12-31' }
-      ended_date { '2023-01-01' }
+      started_date { '1981-12-31' }
+      ended_date { '1982-01-01' }
     end
   end
 end

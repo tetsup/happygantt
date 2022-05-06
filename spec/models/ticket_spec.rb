@@ -75,4 +75,52 @@ RSpec.describe Ticket, type: :model do
       expect(ticket.errors[:ended_date]).to include(I18n.t('errors.messages.blank'))
     end
   end
+
+  describe 'toggler' do
+    let(:ticket_notyet) { create(:ticket) }
+    let(:ticket_doing) { create(:ticket, :doing) }
+    let(:ticket_done) { create(:ticket, :done) }
+
+    it 'changes status from notyet to doing' do
+      ticket_notyet.toggle_doing
+      expect(ticket_notyet).to be_valid
+      expect(ticket_notyet.doing?).to be true
+      expect(ticket_notyet.started_date).not_to eq nil
+    end
+
+    it 'changes status from doing to notyet' do
+      ticket_doing.toggle_done
+      expect(ticket_doing).to be_valid
+      expect(ticket_doing.done?).to be true
+      expect(ticket_doing.ended_date).not_to eq nil
+    end
+
+    it 'do not chenges status from notyet to done' do
+      ticket_notyet.toggle_done
+      expect(ticket_notyet.notyet?).to be true      
+    end
+
+    it 'do not changes status from done to doing' do
+      ticket_done.toggle_doing
+      expect(ticket_done.done?).to be true
+    end
+
+    it 'do not change started_date if doing' do
+      expect {
+        ticket_doing.toggle_doing
+      }.not_to(change { ticket_doing.started_date })
+    end
+
+    it 'do not change started_date if done' do
+      expect {
+        ticket_done.toggle_doing
+      }.not_to(change { ticket_done.started_date })
+    end
+
+    it 'do not change ended_date if done' do
+      expect {
+        ticket_done.toggle_done
+      }.not_to(change { ticket_done.ended_date })
+    end
+  end
 end
