@@ -1,6 +1,7 @@
 class RequirementsController < ApplicationController
   before_action :authenticate_user!
   before_action :fetch_requirement, only: %i[edit update destroy]
+  before_action :fetch_tickets, only: [:edit]
   before_action :fetch_milestone, only: %i[new create]
 
   def new
@@ -39,7 +40,11 @@ class RequirementsController < ApplicationController
   private
 
   def fetch_requirement
-    @requirement = current_user.requirements.eager_load(:tickets).find(params[:id])
+    @requirement = current_user.requirements.find(params[:id])
+  end
+
+  def fetch_tickets
+    @tickets = current_user.tickets.where(requirement_id: params[:id]).order_by_plan.all
   end
 
   def fetch_milestone

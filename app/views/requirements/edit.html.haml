@@ -7,4 +7,4 @@
 %h3
   = t('tickets.index')
 = button_to t('new'), new_requirement_ticket_path(@requirement.id), method: :get, class: 'btn btn-primary'
-= render 'tickets/list', { tickets: @requirement.tickets }
+= render 'tickets/list', { tickets: @tickets }
