@@ -15,6 +15,6 @@ ja:
     update_doing:
       succeeded: 'チケットのステータスを実施中に変更しました'
       failed: 'チケットのステータス変更に失敗しました'
-    update_dong:
+    update_done:
       succeeded: 'チケットのステータスを完了に変更しました'
       failed: 'チケットのステータス変更に失敗しました'
