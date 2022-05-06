@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :fetch_mission, only: %i[new create]
   before_action :fetch_project, only: %i[edit update destroy]
+  before_action :fetch_milestones, only: [:edit]
 
   def new
     @project = @mission.projects.build
@@ -45,6 +46,10 @@ class ProjectsController < ApplicationController
 
   def fetch_project
     @project = current_user.projects.find(params[:id])
+  end
+
+  def fetch_milestones
+    @milestones = current_user.milestones.where(project_id: params[:id]).includes_tickets_by_status.all
   end
 
   def project_params

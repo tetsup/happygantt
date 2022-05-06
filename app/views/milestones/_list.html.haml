@@ -21,6 +21,6 @@
         %td
           = m.status_i18n
         %td
-          = m.count_all_tickets_by_status.join(' / ')
+          #{m.tickets_notyet.size} / #{m.tickets_doing.size} / #{m.tickets_done.size}
         %td
           = button_to t('destroy'), milestone_path(m.id), method: :delete, class: 'btn btn-danger btn-sm'
