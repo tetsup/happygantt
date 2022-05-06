@@ -12,6 +12,7 @@
         %li.nav-item
           %a.nav-link.active{ 'area-current' => 'page', href: root_path }
             Home
-        = render 'layouts/navbar_missions'
-        = render 'layouts/navbar_projects'
+        - if user_signed_in?
+          = render 'layouts/navbar_missions'
+          = render 'layouts/navbar_projects'
       = render 'layouts/user_session'
