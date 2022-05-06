@@ -49,7 +49,10 @@ class ProjectsController < ApplicationController
   end
 
   def fetch_milestones
-    @milestones = current_user.milestones.where(project_id: params[:id]).includes_tickets_by_status.all
+    @milestones = current_user.milestones
+                              .where(project_id: params[:id])
+                              .includes_tickets_by_status
+                              .order(:due_date).all
   end
 
   def project_params
