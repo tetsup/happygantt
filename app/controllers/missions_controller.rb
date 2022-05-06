@@ -43,7 +43,7 @@ class MissionsController < ApplicationController
   private
 
   def fetch_mission
-    @mission = current_user.missions.find(params[:id])
+    @mission = current_user.missions.eager_load(:projects).find(params[:id])
   end
 
   def mission_params

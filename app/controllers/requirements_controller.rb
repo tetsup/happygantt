@@ -39,7 +39,7 @@ class RequirementsController < ApplicationController
   private
 
   def fetch_requirement
-    @requirement = current_user.requirements.find(params[:id])
+    @requirement = current_user.requirements.eager_load(:tickets).find(params[:id])
   end
 
   def fetch_milestone
