@@ -30,6 +30,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.3'
+  gem 'haml-lint'
   gem 'pry-rails'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop'
