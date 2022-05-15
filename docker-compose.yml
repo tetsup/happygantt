@@ -3,8 +3,11 @@ services:
   web:
     build: .
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: 'webpacker'
     volumes:
       - .:/app
+      - bundle:/usr/local/bundle
     ports:
       - "3030:3000"
     user: "1000:1000"
@@ -12,6 +15,15 @@ services:
       - db
     tty: true
     stdin_open: true
+  webpacker:
+    build: .
+    command: ./bin/webpack-dev-server
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: '0.0.0.0'
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+    user: "1000:1000"
   db:
     image: postgres:latest
     ports:
@@ -23,3 +35,4 @@ services:
       POSTGRES_PASSWORD: 'adminpass'
 volumes:
   db-volume:
+  bundle:
