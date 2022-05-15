@@ -1,0 +1,120 @@
+:root{
+  --navbar-height: 100px;
+  --maincontent-margin: 10px;
+  --gt-left-width: 320px;
+  --gt-right-width: 3200px;
+  --gt-header-height: 56px;
+  --gt-element-height: 40px;
+  --gt-time-section-width: 150px;
+  --gt-border-width: 1px;
+  --gt-border-color: #555555;
+}
+
+.gt{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.gt-background{
+  background-color: var(--bs-white);
+}
+.gt-primary{
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+}
+.gt-border{
+  border: var(--gt-border-width) solid var(--gt-border-color);
+}
+.gt-border-bottom{
+  border-bottom: var(--gt-border-width) solid var(--gt-border-color);
+}
+.gt-border-right{
+  border-right: var(--gt-border-width) solid var(--gt-border-color);
+}
+.gt-right-flex{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+.gt-flex-viewport{
+  display: flex;
+  flex-flow: column;
+  height: calc(100vh - var(--navbar-height) - var(--maincontent-margin));
+}
+.gt-flex-form{
+  flex: 0 0 auto;
+  position: relative;
+}
+.gt-flex-gantt{
+  flex: 1 1 auto;
+  position: relative;
+}
+.gt-scroll{
+  overflow: scroll;
+  display: flex;
+  inset: 0px;
+  position: absolute;
+  @extend .gt-border;
+}
+.gt-left-part{
+  flex: 0 0 auto;
+  position: sticky;
+  left: 0px;
+  width: var(--gt-left-width);
+  z-index: 11;
+}
+.gt-right-part{
+  flex: 0 0 auto;
+  width: var(--gt-right-width);
+}
+.gt-viewport{
+  position: relative;
+  min-height: 100%;
+}
+.gt-header{
+  position: sticky;
+  top: 0px;
+  height: var(--gt-header-height);
+}
+.gt-z-10{
+  z-index: 10;
+}
+.gt-z-11{
+  z-index: 11;
+}
+.gt-element{
+  position: relative;
+  height: var(--gt-element-height);
+  flex-grow: 1;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+.gt-index{
+  padding: 4px;
+}
+.gt-scrollarea{
+  overflow: hidden;
+}
+.gt-right-header-part{
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+//  width: var(--gt-time-section-width);
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-pack: center;
+  justify-content: center;
+}
+.gt-gantt-area{
+  position: relative;
+  height: var(--gt-element-height);
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  overflow: hidden;
+}
